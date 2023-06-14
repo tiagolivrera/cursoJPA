@@ -1,5 +1,6 @@
 package br.com.tiagolivera.cursoJPA;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.time.Instant;
 
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 
 import br.com.tiagolivera.cursoJPA.domain.Curso;
 import br.com.tiagolivera.cursoJPA.domain.Matricula;
+import br.com.tiagolivera.cursoJPA.domain.Produto;
 import br.com.tiagolivera.cursoJPA.utils.H2;
 
 public class Application {
@@ -38,6 +40,11 @@ public class Application {
 		m.setDataMatricula(Instant.now());
 		m.setStatus("ATIVA");
 		m.setValor(12.2);
+		
+		Produto produto = new Produto();
+		produto.setCor("Vermelho");
+		produto.setCategoria("Roupas e acessórios");
+		produto.setPreco(BigDecimal.valueOf(150.0));
 
 		final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.tiagolivrera");
 		final EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -45,6 +52,7 @@ public class Application {
 		entityManager.getTransaction().begin();
 		entityManager.persist(curso);
 		entityManager.persist(m);
+		entityManager.persist(produto);
 		entityManager.getTransaction().commit();
 
 		/*

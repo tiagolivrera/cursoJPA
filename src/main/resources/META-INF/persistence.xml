@@ -9,6 +9,7 @@
         <class>br.com.tiagolivera.cursoJPA.Customer</class>
         <class>br.com.tiagolivera.cursoJPA.domain.Curso</class>
         <class>br.com.tiagolivera.cursoJPA.domain.Matricula</class>
+        <class>br.com.tiagolivera.cursoJPA.domain.Produto</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
